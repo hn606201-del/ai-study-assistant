@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Study Assistant</title>
+    <style>
+        /* ===== CƠ BẢN ===== */
+        * {
+            box-sizing: border-box;
+            *{font-family: Newtime romand;}
+        }
+        body {
+            margin: 0;
+            *{background: white;}
+            *{color: Black}
+        }
+        /* ===== HEADER ===== */
+        header {
+            background: #5A4FCF;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        /* ===== NAV ===== */
+        nav {
+            background: #222;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: blue;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        /* ===== USER ICON ===== */
+        .user {
+            position: relative;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+        /* ===== LOGIN POPUP ===== */
+        .login-popup {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 35px;
+            width: 260px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .login-popup h3 {
+            text-align: center;
+        }
+        .login-popup input {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+        }
+        .login-popup button {
+            width: 100%;
+            padding: 8px;
+            background: #0077cc;
+            color: white;
+            border: none;
+        }
+        /* ===== SECTION ===== */
+        section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        h2 {
+             color: blue;
+            text-align: center;
+        }
+        /* ===== SEARCH ===== */
+        .search-box {
+            text-align: center;
+        }
+        .search-box input {
+            padding: 10px;
+            width: 60%;
+        }
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: gray;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        /* ===== TABLE ===== */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #0077cc;
+            color: white;
+        }
+        /* ===== FORM ===== */
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: auto;
+        }
+        form input,form textarea,form button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+        }
+        form button {
+            background: #0077cc;
+            color: white;
+            border: none;
+        }
+        /* ===== FOOTER ===== */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1><em>ASTRA</em></h1>
+        <p>Trợ lý ảo AI hỗ trợ học tập cho học sinh THPT</p>
+    </header>
+    <!-- NAV -->
+    <nav>
+        <div>
+            <a href="#home">Trang chủ</a>
+            <a href="#search">Tìm kiếm</a>
+            <a href="#category">Danh mục</a>
+            <a href="#features">Chức năng</a>
+            <a href="#contact">Liên hệ</a>
+        </div>
+        <!-- ICON USER -->
+        <div class="user" onclick="toggleLogin()">👤
+            <div class="login-popup" id="loginPopup">
+                <h3>Đăng nhập</h3>
+                <input type="text" placeholder="Tên đăng nhập">
+                <input type="password" placeholder="Mật khẩu">
+                <button>Đăng nhập</button>
+                <p style="text-align:center;font-size:14px">
+                    Chưa có tài khoản? <a href="#">Đăng ký</a>
+                </p>
+                </div>
+                </div>
+                </nav>
+                <!-- HOME -->
+        <section id="home">
+    <h2>Giới thiệu</h2>
+     <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:center">
+        <p style="text-align:center">
+    Website trợ lý ảo AI giúp học sinh THPT học tập hiệu quả thông qua
+    giải bài tập, tra cứu kiến thức và lập kế hoạch học tập.
+        </p>
+        <!-- VÙNG CHÈN ẢNH / VIDEO -->
+        <div style="flex:1;min-width:250px">
+     <img 
+     src="https://imgchinhsachcuocsong.vnanet.vn/MediaUpload/Medium/2025/05/06/121403-z6572986585811_d2bc1635c0c1eaa6b660ac984815bb5c.jpg?fbclid=IwY2xjawPxpPFleHRuA2FlbQIxMABicmlkETFtcDJrWkRIbVByTUtDdTB3c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqbJCjm_j-M4eJMz9iUwtIP7xag-Bp8yIL9t7kZyXjTRsE8UystGNknnfMiO_aem_kKQao73TkW0AcLsHkfzEEA" 
+     alt="AI học tập" 
+     style="width:100%;border-radius:10px">
+     <ul style="lít-style-type:square">
+     <li>Hỗ trợ tiếp thu kiến thức hiệu quả</li>
+    <p>AI giúp giải thích những nội dung khó, tóm tắt bài học dài và gợi ý cách giải bài tập. Nhờ đó, học sinh dễ hiểu bài hơn,học nhanh hơn và tiết kiệm thời gian.</p>
+    <li>Phát triển kỹ năng tự học</li>
+    <p>AI đóng vai trò như một “người trợ lý học tập”, giúp học sinh chủ động đặt câu hỏi, tự tìm hiểu và kiểm tra lại kiến
+    thức của bản thân. Điều này hình thành thói quen học tập độc lập, chủ động.</p>
+    <li> Khơi gợi sáng tạo và kỹ năng công nghệ</li>
+    <p>AI hỗ trợ học sinh làm bài thuyết trình, dự án học tập, từ đó phát triển tư duy sáng tạo và kỹ năng sử dụng công nghệ - những kỹ năng cần thiết trong thời đại số.</p>
+        </section>
+                <!-- SEARCH -->
+        <section id="search">
+    <h2>Tìm kiếm nhanh</h2>
+        <div class="search-box">
+        <input type="text"
+        id="searchInput"
+         placeholder="Nhập nội dung cần tìm..."
+         onkeyup="searchFake()">
+        </div>
+        <!-- KẾT QUẢ TÌM KIẾM -->
+        <ul id="searchResult"></ul>
+        </section>
+                <!-- CATEGORY -->
+        <section id="category">
+    <h2>Danh mục môn học</h2>
+        <table>
+             <tr>
+        <th>Môn học</th>
+        <th>Nội dung hỗ trợ</th>
+        <th>Trạng thái</th>
+            </tr>
+            <tr>
+                    <td>Toán</td>
+                    <td>Giải bài, công thức</td>
+                    <td>.</td>
+            </tr>
+            <tr>
+                    <td>Ngữ Văn</td>
+                    <td>Phân tích, tóm tắt</td>
+                    <td>✔</td>
+            </tr>
+            <tr>
+                    <td>Tiếng Anh</td>
+                    <td>Từ vựng, ngữ pháp</td>
+                    <td>✔</td>
+            </tr>
+        </table>
+                </section>
+                <!-- FEATURES -->
+                <section id="features">
+                    <h2>Chức năng chính</h2>
+                    <div class="grid">
+                        <div class="card">
+                            <!-- ẢNH / VIDEO CHỨC NĂNG -->
+                             <img src="https://file.aiquickdraw.com/static/custom/page/features/266/1731663748498bwx7uyh0.webp "
+                             style="width:100%;border-radius:8px">
+                            📘 Giải bài tập</div>
+                        <div class="card">
+                            <img src="https://www.bing.com/th/id/OIP.9xoN_s65EXNCjyDCL85FugHaE2?w=188&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+                            style"width:100%;border-radius:8px">
+                            🧠 Tóm tắt kiến thức</div>
+                        <div class="card">
+                            <!-- ẢNH / VIDEO CHỨC NĂNG -->
+                         <img src="https://lh3.googleusercontent.com/9OHTmftoIRyAPotX8H5g9kFZsPsplTzoaEyqr_KAEossy2L2b_8wu3nzrR2uW6slprnAwa8sYNjBtKg-HIyRQ1lGuZdZWvgGQUA_aXu4Y1jFXQYlZWlpw3LAqyInEhfGZx6WPw-3PKpMdg-lm1oezg"
+                         style="width:100%;border-radius:8px">
+                            📅 Lập kế hoạch học tập</div>
+                        <div class="card">
+                            <!-- ẢNH / VIDEO CHỨC NĂNG -->
+                            <img src="https://img.freepik.com/premium-vector/robot-icon-bot-sign-design-chatbot-symbol-concept-voice-support-service-bot-online-support-bot-vector-illustration_100456-2630.jpg"
+                            style="width:100%;border-radius:8px">
+                            🤖 Chat AI</div>
+                    </div>
+                </section>
+                <!-- CONTACT -->
+                <section id="contact">
+                    <h2>Liên hệ</h2>
+                    <form>
+                        <input type="text" placeholder="Họ và tên">
+                        <input type="email" placeholder="Email">
+                        <textarea row"4" placeholder="Nội dung"></textarea>
+                        <button>Gửi</button>
+                    </form>
+                </section>
+                <!-- FOOTER -->
+                <footer>
+                    <p>© 2026 AI Study Assistant | Dự án Web Tin Học</p>
+                </footer>
+                <script>
+                    function toggleLogin()
+                {const popup=document.getElementById("loginPopup");
+                    popup.style.display= popup.style.display==="block" ? "none" : "block";
+                }
+                </script>
+                </body>
+                </html>
