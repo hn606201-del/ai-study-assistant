@@ -13,8 +13,14 @@
         }
         body {
             margin: 0;
+            pading:0;
             *{background: white;}
             *{color: Black}
+        }
+        .container{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         /* ===== HEADER ===== */
         header {
@@ -77,10 +83,16 @@
             max-width: 1100px;
             margin: auto;
         }
+        .intro img {
+        width: 300px;
+        max-width :100px;
+        border-radius: 8px;
+        }
         h2 {
              color: blue;
             text-align: center;
         }
+
         /* ===== SEARCH ===== */
         .search-box {
             text-align: center;
@@ -143,9 +155,13 @@
             text-align: center;
             padding: 15px;
         }
+        @media (max-width: 768px)
+        {.intro{flex-diẻction: column;}
+        }
     </style>
 </head>
 <body>
+    <div class="container">
     <!-- HEADER -->
     <header>
         <h1><em>ASTRA</em></h1>
@@ -182,7 +198,6 @@
     giải bài tập, tra cứu kiến thức và lập kế hoạch học tập.
         </p>
         <!-- VÙNG CHÈN ẢNH / VIDEO -->
-        <div style="flex:1;min-width:250px">
      <img 
      src="https://imgchinhsachcuocsong.vnanet.vn/MediaUpload/Medium/2025/05/06/121403-z6572986585811_d2bc1635c0c1eaa6b660ac984815bb5c.jpg?fbclid=IwY2xjawPxpPFleHRuA2FlbQIxMABicmlkETFtcDJrWkRIbVByTUtDdTB3c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqbJCjm_j-M4eJMz9iUwtIP7xag-Bp8yIL9t7kZyXjTRsE8UystGNknnfMiO_aem_kKQao73TkW0AcLsHkfzEEA" 
      alt="AI học tập" 
@@ -279,5 +294,6 @@
                     popup.style.display= popup.style.display==="block" ? "none" : "block";
                 }
                 </script>
+                </div>
                 </body>
                 </html>
